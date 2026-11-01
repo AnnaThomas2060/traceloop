@@ -26,6 +26,12 @@ class FaultResult(BaseModel):
     sample_id: str
     fault_type: FaultType
     explanation: str
+    primary_failing_metric: str | None = None
+
+
+# Type aliases matching Part 2 specification
+FaultClassification = FaultResult
+EvalResultSample = EvalRecord
 
 
 class FaultClassifier:
@@ -41,12 +47,14 @@ class FaultClassifier:
                     f"Tool selection mismatch: agent invoked '{record.tool_used}' "
                     f"but expected '{record.expected_tool}'."
                 ),
+                primary_failing_metric="tool_used",
             )
 
         # 2. Retriever Fault (applies when knowledge retriever is used)
         if record.tool_used == "knowledge_retriever_tool":
             if record.context_recall < 0.70 or record.context_precision < 0.65:
                 reasons = []
+                failing_metric = "context_recall" if record.context_recall < 0.70 else "context_precision"
                 if record.context_recall < 0.70:
                     reasons.append(f"low context recall ({record.context_recall:.2f} < 0.70)")
                 if record.context_precision < 0.65:
@@ -55,11 +63,13 @@ class FaultClassifier:
                     sample_id=record.sample_id,
                     fault_type=FaultType.RETRIEVER_FAULT,
                     explanation=f"Retriever defect: {', '.join(reasons)}.",
+                    primary_failing_metric=failing_metric,
                 )
 
         # 3. Generator Fault (applies when faithfulness or relevancy degrades)
         if record.faithfulness < 0.70 or record.answer_relevancy < 0.70:
             reasons = []
+            failing_metric = "faithfulness" if record.faithfulness < 0.70 else "answer_relevancy"
             if record.faithfulness < 0.70:
                 reasons.append(f"low faithfulness ({record.faithfulness:.2f} < 0.70)")
             if record.answer_relevancy < 0.70:
@@ -68,6 +78,7 @@ class FaultClassifier:
                 sample_id=record.sample_id,
                 fault_type=FaultType.GENERATOR_FAULT,
                 explanation=f"Generator breakdown: {', '.join(reasons)}.",
+                primary_failing_metric=failing_metric,
             )
 
         # 4. Pass
@@ -75,6 +86,7 @@ class FaultClassifier:
             sample_id=record.sample_id,
             fault_type=FaultType.PASS,
             explanation="Evaluation passed all metric and routing criteria.",
+            primary_failing_metric=None,
         )
 
     def aggregate_faults(self, results: list[FaultResult]) -> dict[str, int]:

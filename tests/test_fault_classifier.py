@@ -1,9 +1,15 @@
-from evals.fault_classifier import EvalRecord, FaultClassifier, FaultType
+from evals.fault_classifier import (
+    EvalRecord,
+    EvalResultSample,
+    FaultClassification,
+    FaultClassifier,
+    FaultType,
+)
 
 
 def test_tool_selection_fault():
     classifier = FaultClassifier()
-    record = EvalRecord(
+    record = EvalResultSample(
         sample_id="case_tool_fail",
         tool_used="fallback_direct_tool",
         expected_tool="knowledge_retriever_tool",
@@ -13,7 +19,9 @@ def test_tool_selection_fault():
         answer_relevancy=1.0,
     )
     result = classifier.classify(record)
+    assert isinstance(result, FaultClassification)
     assert result.fault_type == FaultType.TOOL_SELECTION_FAULT
+    assert result.primary_failing_metric == "tool_used"
     assert "mismatch" in result.explanation
 
 
@@ -30,6 +38,7 @@ def test_retriever_fault_low_recall():
     )
     result = classifier.classify(record)
     assert result.fault_type == FaultType.RETRIEVER_FAULT
+    assert result.primary_failing_metric == "context_recall"
     assert "recall" in result.explanation
 
 

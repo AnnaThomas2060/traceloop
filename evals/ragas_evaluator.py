@@ -48,6 +48,10 @@ class DatasetEvaluationResult(BaseModel):
     sample_scores: list[SampleMetrics]
 
 
+# Type alias matching Part 2 specification
+EvaluationResult = DatasetEvaluationResult
+
+
 def extract_keywords(text: str) -> set[str]:
     words = re.findall(r"\b[a-zA-Z0-9_-]{3,}\b", text.lower())
     stop_words = {

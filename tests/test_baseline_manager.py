@@ -1,6 +1,6 @@
 import json
 
-from evals.baseline_manager import BaselineManager
+from evals.baseline_manager import BaselineManager, RegressionReport
 
 
 def test_passing_comparison(tmp_path):
@@ -64,3 +64,21 @@ def test_update_baseline(tmp_path):
     assert loaded["faithfulness"] == 0.92
     assert loaded["context_precision"] == 0.90
     assert "created_at" in loaded
+
+
+def test_check_regression_method_and_report_alias(tmp_path):
+    baseline_file = tmp_path / "baseline_check.json"
+    baseline_data = {
+        "faithfulness": 0.88,
+        "context_precision": 0.85,
+    }
+    baseline_file.write_text(json.dumps(baseline_data), encoding="utf-8")
+
+    mgr = BaselineManager(baseline_file=str(baseline_file))
+    report = mgr.check_regression({"faithfulness": 0.85, "context_precision": 0.85}, threshold=0.05)
+    assert isinstance(report, RegressionReport)
+    assert report.status == "PASSED"
+
+    report_fail = mgr.check_regression({"faithfulness": 0.70, "context_precision": 0.85}, threshold=0.05)
+    assert report_fail.status == "REGRESSION_DETECTED"
+

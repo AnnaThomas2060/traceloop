@@ -17,6 +17,10 @@ class BaselineComparisonResult(BaseModel):
     baseline_metrics: dict[str, float]
 
 
+# Type alias matching Part 2 specification
+RegressionReport = BaselineComparisonResult
+
+
 class BaselineManager:
     """Manages baseline metrics and enforces continuous regression gates."""
 
@@ -69,6 +73,19 @@ class BaselineManager:
             current_metrics=current,
             baseline_metrics={k: v for k, v in baseline.items() if isinstance(v, (int, float))},
         )
+
+    def check_regression(
+        self,
+        current_scores: dict[str, float],
+        threshold: float = 0.05,
+    ) -> BaselineComparisonResult:
+        old_thresh = self.regression_threshold
+        self.regression_threshold = threshold
+        try:
+            return self.compare(current_scores)
+        finally:
+            self.regression_threshold = old_thresh
+
 
     def update_baseline(self, new_metrics: dict[str, float]) -> None:
         payload = {
