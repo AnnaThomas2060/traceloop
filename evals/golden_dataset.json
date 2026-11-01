@@ -1,0 +1,366 @@
+[
+  {
+    "question_id": "gold_001",
+    "question": "How does agent memory consolidation bridge working memory and long-term stores?",
+    "ground_truth_answer": "Memory consolidation transforms episodic interaction logs into semantic representations through background summarization routines, purging redundant filler, resolving contradictions with temporal recency weighting, and indexing key entities into long-term stores.",
+    "expected_tool": "knowledge_retriever_tool",
+    "expected_chunk_ids": [
+      "doc_001_chunk_0000",
+      "doc_001_chunk_0003"
+    ],
+    "category": "memory"
+  },
+  {
+    "question_id": "gold_002",
+    "question": "What role do episodic memory stores play in preserving interaction trajectories?",
+    "ground_truth_answer": "Episodic memory stores preserve raw conversational turns, tool inputs, environment responses, timestamps, session identifiers, and model generations with chronological fidelity for auditability and consolidation.",
+    "expected_tool": "knowledge_retriever_tool",
+    "expected_chunk_ids": [
+      "doc_001_chunk_0001",
+      "doc_001_chunk_0002"
+    ],
+    "category": "memory"
+  },
+  {
+    "question_id": "gold_003",
+    "question": "How does Mem0 extract semantic triples from ongoing user dialogues?",
+    "ground_truth_answer": "Mem0 inspects incoming dialogue streams using an instruction-tuned prompt that outputs structured JSON containing semantic triples (subject, predicate, object) linked with temporal metadata, confidence intervals, and proposed memory operations.",
+    "expected_tool": "knowledge_retriever_tool",
+    "expected_chunk_ids": [
+      "doc_002_chunk_0000",
+      "doc_006_chunk_0007"
+    ],
+    "category": "memory"
+  },
+  {
+    "question_id": "gold_004",
+    "question": "Why does Mem0 calculate invalidation scores for contradictory facts?",
+    "ground_truth_answer": "Mem0 calculates invalidation scores based on timestamp recency, source confidence, and dialogue context to resolve contradictions, marking outdated relationship edges as superseded while maintaining an audit trail.",
+    "expected_tool": "knowledge_retriever_tool",
+    "expected_chunk_ids": [
+      "doc_001_chunk_0006",
+      "doc_005_chunk_0004"
+    ],
+    "category": "memory"
+  },
+  {
+    "question_id": "gold_005",
+    "question": "What is the token savings achieved by Mem0 graph-guided memory architectures?",
+    "ground_truth_answer": "Mem0 reduces prompt token overhead by sixty percent by dynamically retrieving only relevant sub-networks and factual triples instead of brute-force chat histories.",
+    "expected_tool": "knowledge_retriever_tool",
+    "expected_chunk_ids": [
+      "doc_011_chunk_0002",
+      "doc_016_chunk_0001"
+    ],
+    "category": "memory"
+  },
+  {
+    "question_id": "gold_006",
+    "question": "How does temporal recency weighting prevent catastrophic forgetting during memory consolidation?",
+    "ground_truth_answer": "Temporal recency weighting ensures newer conflicting truths take precedence during consolidation, systematically deprecating obsolete facts and keeping long-term semantic indices accurate.",
+    "expected_tool": "knowledge_retriever_tool",
+    "expected_chunk_ids": [
+      "doc_001_chunk_0006",
+      "doc_002_chunk_0006"
+    ],
+    "category": "memory"
+  },
+  {
+    "question_id": "gold_007",
+    "question": "How do multi-hop agents decompose composite queries across memory stores?",
+    "ground_truth_answer": "Multi-hop agents analyze query dependencies, execute sequential retrieval steps to gather initial facts, and formulate follow-up queries within bounded iteration budgets before synthesizing comparative answers.",
+    "expected_tool": "knowledge_retriever_tool",
+    "expected_chunk_ids": [
+      "doc_011_chunk_0000",
+      "doc_004_chunk_0004"
+    ],
+    "category": "memory"
+  },
+  {
+    "question_id": "gold_008",
+    "question": "How is Context Recall defined and computed in RAGAS?",
+    "ground_truth_answer": "Context Recall measures the ratio of ground truth factual claims that can be mapped directly to sentences within retrieved context chunks divided by the total number of ground truth claims.",
+    "expected_tool": "knowledge_retriever_tool",
+    "expected_chunk_ids": [
+      "doc_003_chunk_0000",
+      "doc_003_chunk_0006"
+    ],
+    "category": "evaluation"
+  },
+  {
+    "question_id": "gold_009",
+    "question": "What does Context Precision evaluate regarding chunk ranking and signal-to-noise ratio?",
+    "ground_truth_answer": "Context Precision calculates the mean average precision of relevant chunks in the top-k retrieved list, verifying that critical ground truth chunks appear at the highest ranking positions rather than buried under distractors.",
+    "expected_tool": "knowledge_retriever_tool",
+    "expected_chunk_ids": [
+      "doc_003_chunk_0002",
+      "doc_003_chunk_0005"
+    ],
+    "category": "evaluation"
+  },
+  {
+    "question_id": "gold_010",
+    "question": "How does Faithfulness detect extrinsic hallucinations in generated answers?",
+    "ground_truth_answer": "Faithfulness decomposes the generated response into atomic statements and validates each against retrieved context passages, computing the ratio of grounded claims to total claims.",
+    "expected_tool": "knowledge_retriever_tool",
+    "expected_chunk_ids": [
+      "doc_004_chunk_0001",
+      "doc_008_chunk_0011"
+    ],
+    "category": "evaluation"
+  },
+  {
+    "question_id": "gold_011",
+    "question": "What does Answer Relevancy measure using synthetic query generation?",
+    "ground_truth_answer": "Answer Relevancy generates synthetic queries from the answer and computes the mean cosine similarity between synthetic query embeddings and the user query to detect evasive or tangential responses.",
+    "expected_tool": "knowledge_retriever_tool",
+    "expected_chunk_ids": [
+      "doc_004_chunk_0003",
+      "doc_004_chunk_0004"
+    ],
+    "category": "evaluation"
+  },
+  {
+    "question_id": "gold_012",
+    "question": "How does an automated fault engine distinguish between retriever failures and generator failures?",
+    "ground_truth_answer": "The fault engine checks tool routing first; if retriever was invoked, it classifies low recall or precision as Retriever Fault, and classifies low faithfulness or relevancy despite adequate context as Generator Fault.",
+    "expected_tool": "knowledge_retriever_tool",
+    "expected_chunk_ids": [
+      "doc_011_chunk_0001",
+      "doc_011_chunk_0002"
+    ],
+    "category": "evaluation"
+  },
+  {
+    "question_id": "gold_013",
+    "question": "What are the required schema fields for golden evaluation dataset records?",
+    "ground_truth_answer": "Golden evaluation records require question_id, question, ground_truth_answer, expected_tool, expected_chunk_ids, and category attributes.",
+    "expected_tool": "knowledge_retriever_tool",
+    "expected_chunk_ids": [
+      "doc_008_chunk_0004",
+      "doc_016_chunk_0000"
+    ],
+    "category": "evaluation"
+  },
+  {
+    "question_id": "gold_014",
+    "question": "What is the regression gate threshold in CI pipelines to block deployment?",
+    "ground_truth_answer": "The regression gate blocks deployment and exits with code 1 if Faithfulness or Context Precision degrades by more than 0.05 (five percentage points) compared to the recorded baseline.",
+    "expected_tool": "knowledge_retriever_tool",
+    "expected_chunk_ids": [
+      "doc_010_chunk_0009",
+      "doc_011_chunk_0000"
+    ],
+    "category": "evaluation"
+  },
+  {
+    "question_id": "gold_015",
+    "question": "What are the primary HNSW configuration parameters in Qdrant and their trade-offs?",
+    "ground_truth_answer": "Key HNSW parameters include m (maximum bidirectional links per node), ef_construct (candidate list size during build), and ef (search precision candidate list at query time), balancing speed, memory, and recall.",
+    "expected_tool": "knowledge_retriever_tool",
+    "expected_chunk_ids": [
+      "doc_013_chunk_0009",
+      "doc_007_chunk_0009"
+    ],
+    "category": "vector_db"
+  },
+  {
+    "question_id": "gold_016",
+    "question": "How does Qdrant pre-filtering differ from traditional post-filtering during vector search?",
+    "ground_truth_answer": "Qdrant pre-filtering integrates inverted indices directly into graph traversal, dynamically bypassing nodes that fail metadata filters to prevent the severe recall drops common with post-filtering.",
+    "expected_tool": "knowledge_retriever_tool",
+    "expected_chunk_ids": [
+      "doc_005_chunk_0007",
+      "doc_005_chunk_0006"
+    ],
+    "category": "vector_db"
+  },
+  {
+    "question_id": "gold_017",
+    "question": "What is the memory reduction percentage achieved by Scalar Quantization in Qdrant?",
+    "ground_truth_answer": "Scalar Quantization achieves a seventy-five percent memory reduction by mapping 32-bit floating point numbers to 8-bit unsigned integers across two hundred fifty-six discrete buckets.",
+    "expected_tool": "knowledge_retriever_tool",
+    "expected_chunk_ids": [
+      "doc_007_chunk_0005",
+      "doc_007_chunk_0001"
+    ],
+    "category": "vector_db"
+  },
+  {
+    "question_id": "gold_018",
+    "question": "Why does Qdrant utilize two-stage rescoring with quantized vector representations?",
+    "ground_truth_answer": "Two-stage rescoring identifies candidate points using fast quantized in-memory calculations and then re-ranks top candidates using exact uncompressed float32 vectors from disk, preserving ninety-nine percent precision.",
+    "expected_tool": "knowledge_retriever_tool",
+    "expected_chunk_ids": [
+      "doc_013_chunk_0007",
+      "doc_007_chunk_0002"
+    ],
+    "category": "vector_db"
+  },
+  {
+    "question_id": "gold_019",
+    "question": "What are the recommended chunk size and overlap parameters for technical documentation?",
+    "ground_truth_answer": "Standard technical chunking recommends a chunk size of five hundred characters with an overlap of sixty characters using recursive character splitting on hierarchical separators.",
+    "expected_tool": "knowledge_retriever_tool",
+    "expected_chunk_ids": [
+      "doc_013_chunk_0003",
+      "doc_013_chunk_0011"
+    ],
+    "category": "vector_db"
+  },
+  {
+    "question_id": "gold_020",
+    "question": "What vector dimension does the BAAI/bge-small-en-v1.5 model produce?",
+    "ground_truth_answer": "The BAAI/bge-small-en-v1.5 embedding model produces dense vectors with dimension 384, normalized to unit L2 length for fast cosine dot products.",
+    "expected_tool": "knowledge_retriever_tool",
+    "expected_chunk_ids": [
+      "doc_014_chunk_0007",
+      "doc_014_chunk_0009"
+    ],
+    "category": "vector_db"
+  },
+  {
+    "question_id": "gold_021",
+    "question": "How is UUIDv5 and SHA-256 used to enforce idempotent vector upsert in Qdrant?",
+    "ground_truth_answer": "Deterministic point IDs are generated using UUIDv5 with a fixed namespace and a SHA-256 hash of doc_id concatenated with chunk content, ensuring repeated upserts replace existing points without creating duplicates.",
+    "expected_tool": "knowledge_retriever_tool",
+    "expected_chunk_ids": [
+      "doc_005_chunk_0004",
+      "doc_006_chunk_0011"
+    ],
+    "category": "vector_db"
+  },
+  {
+    "question_id": "gold_022",
+    "question": "What nested span hierarchy does Langfuse record for LLM agent interactions?",
+    "ground_truth_answer": "Langfuse captures a root trace with session and user metadata, containing agent spans for planning and routing, tool spans for invocations and observations, and generation spans for token counts and completions.",
+    "expected_tool": "knowledge_retriever_tool",
+    "expected_chunk_ids": [
+      "doc_008_chunk_0000",
+      "doc_016_chunk_0003"
+    ],
+    "category": "observability"
+  },
+  {
+    "question_id": "gold_023",
+    "question": "How does Langfuse link user preference scores to specific trace identifiers?",
+    "ground_truth_answer": "Langfuse links user preference scores, such as binary thumbs votes or numeric ratings, to unique trace identifiers, enabling filtering of dissatisfied sessions for evaluation dataset promotion.",
+    "expected_tool": "knowledge_retriever_tool",
+    "expected_chunk_ids": [
+      "doc_009_chunk_0002",
+      "doc_009_chunk_0012"
+    ],
+    "category": "observability"
+  },
+  {
+    "question_id": "gold_024",
+    "question": "What are the three primary categories of tool selection errors in autonomous agents?",
+    "ground_truth_answer": "Tool selection errors comprise false negative routing (failing to call a required tool), false positive routing (unnecessarily calling a tool for basic greetings), and parameter formatting errors.",
+    "expected_tool": "knowledge_retriever_tool",
+    "expected_chunk_ids": [
+      "doc_009_chunk_0002",
+      "doc_004_chunk_0003"
+    ],
+    "category": "observability"
+  },
+  {
+    "question_id": "gold_025",
+    "question": "How does retrieval drift manifest when knowledge bases undergo continuous updates?",
+    "ground_truth_answer": "Retrieval drift occurs when new documents cause semantic crowding or chunk boundary displacements, displacing previously top-ranked chunks and degrading Context Precision without explicit code changes.",
+    "expected_tool": "knowledge_retriever_tool",
+    "expected_chunk_ids": [
+      "doc_012_chunk_0008",
+      "doc_012_chunk_0007"
+    ],
+    "category": "observability"
+  },
+  {
+    "question_id": "gold_026",
+    "question": "Why is high-precision wall-clock timing important for monitoring vector search latency?",
+    "ground_truth_answer": "High-precision wall-clock timing using time.perf_counter tracks stage-by-stage latencies, helping engineers isolate search bottlenecks, evaluate HNSW tuning, and avoid timer drift from clock adjustments.",
+    "expected_tool": "knowledge_retriever_tool",
+    "expected_chunk_ids": [
+      "doc_018_chunk_0001",
+      "doc_005_chunk_0005"
+    ],
+    "category": "observability"
+  },
+  {
+    "question_id": "gold_027",
+    "question": "How do bounded reflection loops help autonomous agents recover from failed tool executions?",
+    "ground_truth_answer": "Bounded reflection loops evaluate intermediate tool errors, reformulate queries or select alternative tools within strict retry budgets, and gracefully report context insufficiency if recovery fails.",
+    "expected_tool": "knowledge_retriever_tool",
+    "expected_chunk_ids": [
+      "doc_020_chunk_0006",
+      "doc_020_chunk_0000"
+    ],
+    "category": "observability"
+  },
+  {
+    "question_id": "gold_028",
+    "question": "How does Langfuse export error traces for regression dataset synchronization?",
+    "ground_truth_answer": "Langfuse API queries filter traces with errors or negative feedback, extracting input queries, retrieved chunks, generated answers, and tool names for deduplication into promoted evaluation datasets.",
+    "expected_tool": "knowledge_retriever_tool",
+    "expected_chunk_ids": [
+      "doc_008_chunk_0005",
+      "doc_007_chunk_0003"
+    ],
+    "category": "observability"
+  },
+  {
+    "question_id": "gold_029",
+    "question": "Hello! Who are you and how can you help me today?",
+    "ground_truth_answer": "Hello. I am the TraceLoop agent. Direct conversational response: no retrieval was performed for this query. I can assist you with technical documentation on agent memory, RAG metrics, vector databases, and observability.",
+    "expected_tool": "fallback_direct_tool",
+    "expected_chunk_ids": [],
+    "category": "conversational"
+  },
+  {
+    "question_id": "gold_030",
+    "question": "Good morning, can you tell me what capabilities you have?",
+    "ground_truth_answer": "Good morning. Direct conversational response: no retrieval was performed for this query. I can answer technical questions regarding agent memory architectures, RAGAS evaluations, Qdrant vector indexing, and Langfuse tracing.",
+    "expected_tool": "fallback_direct_tool",
+    "expected_chunk_ids": [],
+    "category": "conversational"
+  },
+  {
+    "question_id": "gold_031",
+    "question": "Hi there! I am new to TraceLoop.",
+    "ground_truth_answer": "Welcome to TraceLoop. Direct conversational response: no retrieval was performed for this query. Please let me know which technical topic you would like to explore.",
+    "expected_tool": "fallback_direct_tool",
+    "expected_chunk_ids": [],
+    "category": "conversational"
+  },
+  {
+    "question_id": "gold_032",
+    "question": "Hey assistant, what is your primary function?",
+    "ground_truth_answer": "My primary function is to serve as an agentic RAG assistant with continuous trace evaluation. Direct conversational response: no retrieval was performed for this query.",
+    "expected_tool": "fallback_direct_tool",
+    "expected_chunk_ids": [],
+    "category": "conversational"
+  },
+  {
+    "question_id": "gold_033",
+    "question": "Thank you for the detailed explanation!",
+    "ground_truth_answer": "You are welcome. Direct conversational response: no retrieval was performed for this query. Let me know if you need more assistance.",
+    "expected_tool": "fallback_direct_tool",
+    "expected_chunk_ids": [],
+    "category": "conversational"
+  },
+  {
+    "question_id": "gold_034",
+    "question": "Greetings! Are you ready to assist me?",
+    "ground_truth_answer": "Greetings! I am ready to help. Direct conversational response: no retrieval was performed for this query. Feel free to ask any technical domain question.",
+    "expected_tool": "fallback_direct_tool",
+    "expected_chunk_ids": [],
+    "category": "conversational"
+  },
+  {
+    "question_id": "gold_035",
+    "question": "What can you do for our engineering team?",
+    "ground_truth_answer": "I provide grounded technical search across architecture docs and automatically log traces for regression testing. Direct conversational response: no retrieval was performed for this query.",
+    "expected_tool": "fallback_direct_tool",
+    "expected_chunk_ids": [],
+    "category": "conversational"
+  }
+]

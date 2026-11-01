@@ -1,0 +1,20 @@
+{
+  "run_id": "local-ragas-evaluation",
+  "params": {
+    "embedding_model": "BAAI/bge-small-en-v1.5",
+    "chunk_size": 500,
+    "chunk_overlap": 60,
+    "model_name": "gpt-4o-mini",
+    "dataset_path": "evals/golden_dataset.json",
+    "total_samples": 35
+  },
+  "metrics": {
+    "faithfulness": 1.0,
+    "context_precision": 0.9143,
+    "context_recall": 0.8714,
+    "answer_relevancy": 0.8343,
+    "delta_faithfulness": -0.01,
+    "delta_context_precision": 0.0757,
+    "total_faults": 6
+  }
+}

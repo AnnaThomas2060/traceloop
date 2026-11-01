@@ -1,0 +1,20 @@
+{
+  "status": "REGRESSION_DETECTED",
+  "regressed_metrics": [
+    "context_precision (drop: 0.0757 > 0.05)"
+  ],
+  "delta_faithfulness": -0.01,
+  "delta_context_precision": 0.0757,
+  "current_metrics": {
+    "faithfulness": 1.0,
+    "context_precision": 0.9143,
+    "context_recall": 0.8714,
+    "answer_relevancy": 0.8343
+  },
+  "baseline_metrics": {
+    "faithfulness": 0.99,
+    "context_precision": 0.99,
+    "context_recall": 0.99,
+    "answer_relevancy": 0.99
+  }
+}

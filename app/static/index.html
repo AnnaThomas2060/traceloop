@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TraceLoop Diagnostic Interface</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>TraceLoop Diagnostic Console</h1>
+      <p class="subtitle">Agentic RAG Service with Automated Trace-to-Eval Regression Loop</p>
+    </header>
+
+    <main>
+      <section class="form-group">
+        <label for="query-input">Query Input</label>
+        <textarea id="query-input" placeholder="Ask a technical question about memory architectures, RAG metrics, vector indexing, or general agent capabilities..."></textarea>
+      </section>
+
+      <button id="submit-btn" class="submit-btn" type="button">Execute Query</button>
+
+      <div id="status-box" class="status-message"></div>
+
+      <section id="result-container" class="result-card">
+        <div class="metadata-section">
+          <span id="tool-badge" class="badge">Tool</span>
+          <span id="latency-badge" class="badge badge-latency">Latency</span>
+        </div>
+
+        <div>
+          <label>Retrieved Chunk IDs:</label>
+          <div id="chunk-list" class="chunk-chips"></div>
+        </div>
+
+        <div style="margin-top: 1rem;">
+          <label>Agent Response:</label>
+          <div id="answer-text" class="answer-body"></div>
+        </div>
+
+        <div class="actions-section">
+          <div class="feedback-buttons">
+            <button id="thumbs-up-btn" class="feedback-btn" type="button">Thumbs Up</button>
+            <button id="thumbs-down-btn" class="feedback-btn" type="button">Thumbs Down</button>
+          </div>
+          <a id="trace-link" class="trace-link" href="#" target="_blank" rel="noopener noreferrer">Inspect Langfuse Trace</a>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

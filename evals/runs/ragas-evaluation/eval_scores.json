@@ -1,0 +1,247 @@
+[
+  {
+    "question_id": "gold_001",
+    "context_recall": 1.0,
+    "context_precision": 1.0,
+    "faithfulness": 1.0,
+    "answer_relevancy": 0.826
+  },
+  {
+    "question_id": "gold_002",
+    "context_recall": 1.0,
+    "context_precision": 1.0,
+    "faithfulness": 1.0,
+    "answer_relevancy": 0.8091
+  },
+  {
+    "question_id": "gold_003",
+    "context_recall": 1.0,
+    "context_precision": 1.0,
+    "faithfulness": 1.0,
+    "answer_relevancy": 0.8534
+  },
+  {
+    "question_id": "gold_004",
+    "context_recall": 0.5,
+    "context_precision": 1.0,
+    "faithfulness": 1.0,
+    "answer_relevancy": 0.8429
+  },
+  {
+    "question_id": "gold_005",
+    "context_recall": 1.0,
+    "context_precision": 1.0,
+    "faithfulness": 1.0,
+    "answer_relevancy": 0.7961
+  },
+  {
+    "question_id": "gold_006",
+    "context_recall": 1.0,
+    "context_precision": 1.0,
+    "faithfulness": 1.0,
+    "answer_relevancy": 0.8471
+  },
+  {
+    "question_id": "gold_007",
+    "context_recall": 0.0,
+    "context_precision": 0.0,
+    "faithfulness": 1.0,
+    "answer_relevancy": 0.5155
+  },
+  {
+    "question_id": "gold_008",
+    "context_recall": 1.0,
+    "context_precision": 1.0,
+    "faithfulness": 1.0,
+    "answer_relevancy": 0.7574
+  },
+  {
+    "question_id": "gold_009",
+    "context_recall": 1.0,
+    "context_precision": 1.0,
+    "faithfulness": 1.0,
+    "answer_relevancy": 0.8174
+  },
+  {
+    "question_id": "gold_010",
+    "context_recall": 1.0,
+    "context_precision": 1.0,
+    "faithfulness": 1.0,
+    "answer_relevancy": 0.8549
+  },
+  {
+    "question_id": "gold_011",
+    "context_recall": 1.0,
+    "context_precision": 1.0,
+    "faithfulness": 1.0,
+    "answer_relevancy": 0.7631
+  },
+  {
+    "question_id": "gold_012",
+    "context_recall": 1.0,
+    "context_precision": 1.0,
+    "faithfulness": 1.0,
+    "answer_relevancy": 0.7602
+  },
+  {
+    "question_id": "gold_013",
+    "context_recall": 0.0,
+    "context_precision": 0.0,
+    "faithfulness": 1.0,
+    "answer_relevancy": 0.5958
+  },
+  {
+    "question_id": "gold_014",
+    "context_recall": 1.0,
+    "context_precision": 1.0,
+    "faithfulness": 1.0,
+    "answer_relevancy": 0.7735
+  },
+  {
+    "question_id": "gold_015",
+    "context_recall": 1.0,
+    "context_precision": 1.0,
+    "faithfulness": 1.0,
+    "answer_relevancy": 0.8147
+  },
+  {
+    "question_id": "gold_016",
+    "context_recall": 1.0,
+    "context_precision": 1.0,
+    "faithfulness": 1.0,
+    "answer_relevancy": 0.8273
+  },
+  {
+    "question_id": "gold_017",
+    "context_recall": 1.0,
+    "context_precision": 1.0,
+    "faithfulness": 1.0,
+    "answer_relevancy": 0.7848
+  },
+  {
+    "question_id": "gold_018",
+    "context_recall": 0.0,
+    "context_precision": 0.0,
+    "faithfulness": 1.0,
+    "answer_relevancy": 0.5716
+  },
+  {
+    "question_id": "gold_019",
+    "context_recall": 1.0,
+    "context_precision": 1.0,
+    "faithfulness": 1.0,
+    "answer_relevancy": 0.8841
+  },
+  {
+    "question_id": "gold_020",
+    "context_recall": 1.0,
+    "context_precision": 1.0,
+    "faithfulness": 1.0,
+    "answer_relevancy": 0.7802
+  },
+  {
+    "question_id": "gold_021",
+    "context_recall": 1.0,
+    "context_precision": 1.0,
+    "faithfulness": 1.0,
+    "answer_relevancy": 0.8076
+  },
+  {
+    "question_id": "gold_022",
+    "context_recall": 0.5,
+    "context_precision": 1.0,
+    "faithfulness": 1.0,
+    "answer_relevancy": 0.8522
+  },
+  {
+    "question_id": "gold_023",
+    "context_recall": 1.0,
+    "context_precision": 1.0,
+    "faithfulness": 1.0,
+    "answer_relevancy": 0.8412
+  },
+  {
+    "question_id": "gold_024",
+    "context_recall": 1.0,
+    "context_precision": 1.0,
+    "faithfulness": 1.0,
+    "answer_relevancy": 0.8395
+  },
+  {
+    "question_id": "gold_025",
+    "context_recall": 1.0,
+    "context_precision": 1.0,
+    "faithfulness": 1.0,
+    "answer_relevancy": 0.789
+  },
+  {
+    "question_id": "gold_026",
+    "context_recall": 0.5,
+    "context_precision": 1.0,
+    "faithfulness": 1.0,
+    "answer_relevancy": 0.9282
+  },
+  {
+    "question_id": "gold_027",
+    "context_recall": 1.0,
+    "context_precision": 1.0,
+    "faithfulness": 1.0,
+    "answer_relevancy": 0.9127
+  },
+  {
+    "question_id": "gold_028",
+    "context_recall": 1.0,
+    "context_precision": 1.0,
+    "faithfulness": 1.0,
+    "answer_relevancy": 0.7533
+  },
+  {
+    "question_id": "gold_029",
+    "context_recall": 1.0,
+    "context_precision": 1.0,
+    "faithfulness": 1.0,
+    "answer_relevancy": 1.0
+  },
+  {
+    "question_id": "gold_030",
+    "context_recall": 1.0,
+    "context_precision": 1.0,
+    "faithfulness": 1.0,
+    "answer_relevancy": 1.0
+  },
+  {
+    "question_id": "gold_031",
+    "context_recall": 1.0,
+    "context_precision": 1.0,
+    "faithfulness": 1.0,
+    "answer_relevancy": 1.0
+  },
+  {
+    "question_id": "gold_032",
+    "context_recall": 1.0,
+    "context_precision": 1.0,
+    "faithfulness": 1.0,
+    "answer_relevancy": 1.0
+  },
+  {
+    "question_id": "gold_033",
+    "context_recall": 1.0,
+    "context_precision": 1.0,
+    "faithfulness": 1.0,
+    "answer_relevancy": 1.0
+  },
+  {
+    "question_id": "gold_034",
+    "context_recall": 1.0,
+    "context_precision": 1.0,
+    "faithfulness": 1.0,
+    "answer_relevancy": 1.0
+  },
+  {
+    "question_id": "gold_035",
+    "context_recall": 1.0,
+    "context_precision": 1.0,
+    "faithfulness": 1.0,
+    "answer_relevancy": 1.0
+  }
+]
